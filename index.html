@@ -1,407 +1,392 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>脊柱外科检查医嘱速查系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .checkbox-wrapper:checked + div { 
+            background-color: #dbeafe; 
+            border-color: #3b82f6; 
+        }
+        .tag { 
+            display: inline-flex; 
+            align-items: center; 
+            padding: 0.25rem 0.75rem; 
+            border-radius: 9999px; 
+            font-size: 0.75rem; 
+            font-weight: 500; 
+            margin-left: 0.5rem; 
+        }
+        .tag-warning { background-color: #fef3c7; color: #92400e; }
+        .tag-info { background-color: #e0f2fe; color: #0369a1; }
+        .tag-success { background-color: #d1fae5; color: #065f46; }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-CN"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;脊柱外科检查医嘱速查系统&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Noto Sans SC', sans-serif; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.fade-in { animation: fadeIn 0.3s ease-in; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.checkbox-wrapper:checked + div { background-color: #dbeafe; border-color: #3b82f6; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; margin-left: 0.5rem; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag-warning { background-color: #fef3c7; color: #92400e; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag-info { background-color: #e0f2fe; color: #0369a1; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag-success { background-color: #d1fae5; color: #065f46; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="bg-gray-50 min-h-screen"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center justify-between"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center space-x-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-blue-600 text-white p-2 rounded-lg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h1 class="text-xl font-bold text-gray-900"&gt;脊柱外科检查医嘱速查&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm text-gray-500"&gt;新人培训·临床决策支持系统&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="resetAll()" class="text-sm text-gray-500 hover:text-gray-700 underline"&gt;重置选择&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Disease Selection --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-2"&gt;STEP 1&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>选择疾病诊断</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="diseaseGrid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 由JS生成 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Results Area --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="resultsArea" class="hidden fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center justify-between mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-lg font-semibold text-gray-900 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded mr-2"&gt;STEP 2&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>推荐检查方案</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex space-x-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="copyToClipboard()" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 flex items-center transition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>复制文本</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button onclick="printView()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 flex items-center transition"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>打印/导出</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="cardsContainer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 动态生成内容 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 合并后的清单视图 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6" id="mergedView"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-lg font-bold text-gray-900 mb-4 border-b pb-2"&gt;合并执行清单（去重后）&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="mergedContent"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Empty State --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="emptyState" class="text-center py-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-gray-100 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-500"&gt;请在上方选择疾病诊断以查看对应检查方案&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 数据源（基于图片提取）</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const database = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"ovcf": {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>name: "老年脊柱骨折(OVCF)",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>category: "创伤/老年",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: "red",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检验: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血细胞分析（五分类+红白细胞形态）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"出凝血四项+DD+FDP",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"尿沉渣测定+尿液分析（干化学）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"粪便检查（常规+隐血）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"生化全套组合（肝、肾、糖、脂）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"电解质（K/NA/CL/GA/MG/P）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"乙肝五项+艾、丙、梅毒（定性）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（男/女）肿瘤标志物",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"骨代谢五项"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检查: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"床旁心电图（十二通道）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸椎正侧位（不要胶片）+腰椎正侧位（不要胶片）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸椎MRI平扫+腰椎MRI平扫",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸椎CT平扫（含薄层）+骨密度（T11-L2）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸部CT平扫（含薄层）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（住院）双下肢动脉及静脉（彩超）"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>内科并发症: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"高血压": ["（急）心脏标志物", "动态血压"],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"冠心病、房颤": ["心脏彩超", "动态心电图+心率变异性分析"],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"糖尿病": ["糖化血红蛋白测定"],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"COPD": ["痰液培养", "肺功能"]</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"trauma": {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>name: "中青年脊柱骨折（创伤）",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>category: "创伤",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: "orange",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检验: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血细胞分析（五分类+红白细胞形态）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"出凝血四项+DD+FDP",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"尿沉渣测定+尿液分析（干化学）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"粪便检查（常规+隐血）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"生化全套组合（肝、肾、糖、脂）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"电解质（K/NA/CL/GA/MG/P）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"乙肝五项+艾、丙、梅毒（定性）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血型鉴定（住院）（开放手术）&lt;span class='tag tag-warning'&gt;手术&lt;/span&gt;"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检查: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"床旁心电图（十二通道）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"颈椎/胸椎/腰椎正侧位（不要胶片）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"颈椎/胸椎/腰椎MRI平扫",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸部CT平扫（含薄层）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（住院）双下肢动脉及静脉（彩超）&lt;span class='tag tag-info'&gt;根据病情&lt;/span&gt;"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>内科并发症: {}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"cervical": {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>name: "颈椎病",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>category: "退行性疾病",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: "blue",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检验: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血细胞分析（五分类+红白细胞形态）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"出凝血四项+DD+FDP",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"尿沉渣测定+尿液分析（干化学）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"粪便检查（常规+隐血）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"生化全套组合（肝、肾、糖、脂）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"电解质（K/NA/CL/GA/MG/P）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"乙肝五项+艾、丙、梅毒（定性）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（男/女）肿瘤标志物&lt;span class='tag tag-warning'&gt;有肿瘤病史&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"骨代谢五项&lt;span class='tag tag-success'&gt;老年&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血型鉴定（住院）（考虑手术）&lt;span class='tag tag-warning'&gt;手术&lt;/span&gt;"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检查: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"常规/床旁心电图（十二通道）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"颈椎正侧位（不要胶片）+颈椎过伸过屈位（不要胶片）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"颈椎MRI平扫",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸椎CT平扫（含薄层）+骨密度（T11-L2）&lt;span class='tag tag-success'&gt;老年&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸部CT平扫（含薄层）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（住院）双下肢动脉及静脉（彩超）&lt;span class='tag tag-info'&gt;根据病情&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"双侧颈动脉及椎动脉彩超&lt;span class='tag tag-info'&gt;头晕&lt;/span&gt;"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>内科并发症: {}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"ldh": {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>name: "LDH/ISS/LS",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>category: "退行性疾病",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: "indigo",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检验: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血细胞分析（五分类+红白细胞形态）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"出凝血四项+DD+FDP",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"尿沉渣测定+尿液分析（干化学）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"粪便检查（常规+隐血）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"生化全套组合（肝、肾、糖、脂）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"电解质（K/NA/CL/GA/MG/P）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"乙肝五项+艾、丙、梅毒（定性）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（男/女）肿瘤标志物&lt;span class='tag tag-warning'&gt;有肿瘤病史&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"骨代谢五项&lt;span class='tag tag-success'&gt;老年&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"血型鉴定（住院）（考虑开放手术）&lt;span class='tag tag-warning'&gt;手术&lt;/span&gt;"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>检查: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"常规/床旁心电图（十二通道）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"腰椎正侧位（不要胶片）+腰椎过伸过屈位（不要胶片）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"腰椎MRI平扫",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸椎CT平扫（含薄层）+骨密度（T11-L2）&lt;span class='tag tag-success'&gt;老年&lt;/span&gt;",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"胸部CT平扫（含薄层）",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"（住院）双下肢动脉及静脉（彩超）&lt;span class='tag tag-info'&gt;根据病情&lt;/span&gt;"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>内科并发症: {}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>let selectedDiseases = new Set();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function init() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderDiseaseButtons();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderDiseaseButtons() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const grid = document.getElementById('diseaseGrid');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid.innerHTML = '';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>Object.entries(database).forEach(([key, data]) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const btn = document.createElement('label');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.className = 'cursor-pointer block';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="checkbox" class="hidden checkbox-wrapper" value="${key}" onchange="toggleDisease('${key}')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="border-2 border-gray-200 rounded-xl p-4 hover:border-blue-400 hover:shadow-md transition-all bg-white h-full"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-start justify-between mb-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-${data.color}-100 text-${data.color}-800"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${data.category}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="w-2.5 h-2.5 rounded-full bg-blue-600 hidden check-dot"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold text-gray-900 text-lg"&gt;${data.name}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xs text-gray-500 mt-1"&gt;点击选择/取消&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid.appendChild(btn);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function toggleDisease(key) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (selectedDiseases.has(key)) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>selectedDiseases.delete(key);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>selectedDiseases.add(key);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>updateUI();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function updateUI() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// 更新复选框视觉状态</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.checkbox-wrapper').forEach(cb =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const dot = cb.nextElementSibling.querySelector('.check-dot');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const circle = cb.nextElementSibling.querySelector('.check-circle');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (cb.checked) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>dot.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>circle.classList.add('border-blue-600');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>dot.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>circle.classList.remove('border-blue-600');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (selectedDiseases.size === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('resultsArea').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('emptyState').classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('emptyState').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('resultsArea').classList.remove('hidden');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderResults();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderMergedView();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderResults() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('cardsContainer');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>container.innerHTML = '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>selectedDiseases.forEach(key =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const data = database[key];</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const card = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>card.className = 'bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden';</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>let complicationsHtml = '';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (Object.keys(data.内科并发症).length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>complicationsHtml = `</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mt-4 pt-4 border-t border-gray-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;svg class="w-4 h-4 mr-1 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>合并内科疾病时加做</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${Object.entries(data.内科并发症).map(([disease, items]) =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-yellow-50 rounded-lg p-2 text-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span class="font-medium text-yellow-800"&gt;${disease}：&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span class="text-yellow-700"&gt;${items.join('、')}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>card.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-${data.color}-50 px-4 py-3 border-b border-${data.color}-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold text-${data.color}-900"&gt;${data.name}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>检验项目</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;ul class="space-y-1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${data.检验.map(item =&gt; `&lt;li class="text-sm text-gray-600 flex items-start"&gt;&lt;span class="mr-2"&gt;•&lt;/span&gt;&lt;span&gt;${item}&lt;/span&gt;&lt;/li&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="text-sm font-semibold text-gray-700 mb-2 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;svg class="w-4 h-4 mr-1 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>检查项目</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;ul class="space-y-1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${data.检查.map(item =&gt; `&lt;li class="text-sm text-gray-600 flex items-start"&gt;&lt;span class="mr-2"&gt;•&lt;/span&gt;&lt;span&gt;${item}&lt;/span&gt;&lt;/li&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>${complicationsHtml}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>container.appendChild(card);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderMergedView() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const merged = { 检验: new Set(), 检查: new Set() };</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>selectedDiseases.forEach(key =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const data = database[key];</p>
-<p class="p1"><span class="Apple-converted-space">                </span>data.检验.forEach(item =&gt; merged.检验.add(item.replace(/&lt;[^&gt;]*&gt;/g, ''))); // 去除HTML标签</p>
-<p class="p1"><span class="Apple-converted-space">                </span>data.检查.forEach(item =&gt; merged.检查.add(item.replace(/&lt;[^&gt;]*&gt;/g, '')));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const content = document.getElementById('mergedContent');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-semibold text-gray-900 mb-3 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="w-2 h-2 bg-blue-500 rounded-full mr-2"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>检验（${merged.检验.size}项）</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-gray-50 rounded-lg p-4 space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>${Array.from(merged.检验).map(item =&gt; `&lt;div class="text-sm text-gray-700 border-b border-gray-200 last:border-0 pb-1 last:pb-0"&gt;${item}&lt;/div&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="font-semibold text-gray-900 mb-3 flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="w-2 h-2 bg-purple-500 rounded-full mr-2"&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>检查（${merged.检查.size}项）</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-gray-50 rounded-lg p-4 space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>${Array.from(merged.检查).map(item =&gt; `&lt;div class="text-sm text-gray-700 border-b border-gray-200 last:border-0 pb-1 last:pb-0"&gt;${item}&lt;/div&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function resetAll() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>selectedDiseases.clear();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.checkbox-wrapper').forEach(cb =&gt; cb.checked = false);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>updateUI();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function copyToClipboard() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let text = `脊柱外科检查医嘱清单\n生成时间：${new Date().toLocaleString()}\n\n`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>selectedDiseases.forEach(key =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const data = database[key];</p>
-<p class="p1"><span class="Apple-converted-space">                </span>text += `【${data.name}】\n`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>text += `检验项目：\n${data.检验.map(i =&gt; '- ' + i.replace(/&lt;[^&gt;]*&gt;/g, '')).join('\n')}\n\n`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>text += `检查项目：\n${data.检查.map(i =&gt; '- ' + i.replace(/&lt;[^&gt;]*&gt;/g, '')).join('\n')}\n\n`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>navigator.clipboard.writeText(text).then(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert('已复制到剪贴板！可直接粘贴到病程记录或医嘱本。');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function printView() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.print();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 初始化</p>
-<p class="p1"><span class="Apple-converted-space">        </span>init();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">脊柱外科检查医嘱速查</h1>
+                        <p class="text-sm text-gray-500">新人培训·临床决策支持系统</p>
+                    </div>
+                </div>
+                <button onclick="resetAll()" class="text-sm text-gray-500 hover:text-gray-700 underline">重置选择</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-2">STEP 1</span>
+                选择疾病诊断
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="diseaseGrid">
+                <!-- 由JS生成 -->
+            </div>
+        </section>
+
+        <section id="resultsArea" class="hidden fade-in">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 flex items-center">
+                    <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded mr-2">STEP 2</span>
+                    推荐检查方案
+                </h2>
+                <div class="flex space-x-2">
+                    <button onclick="copyToClipboard()" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 flex items-center transition">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        复制文本
+                    </button>
+                    <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 flex items-center transition">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                        </svg>
+                        打印/导出
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="cardsContainer">
+                <!-- 动态生成内容 -->
+            </div>
+
+            <div class="mt-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6" id="mergedView">
+                <h3 class="text-lg font-bold text-gray-900 mb-4 border-b pb-2">合并执行清单（去重后）</h3>
+                <div id="mergedContent"></div>
+            </div>
+        </section>
+
+        <section id="emptyState" class="text-center py-12">
+            <div class="bg-gray-100 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+            </div>
+            <p class="text-gray-500">请在上方选择疾病诊断以查看对应检查方案</p>
+        </section>
+    </main>
+
+    <footer class="mt-12 py-6 text-center text-xs text-gray-400 border-t max-w-7xl mx-auto px-4">
+        <p>⚠️ 本工具仅供科室内部培训参考，具体医嘱请结合患者实际情况及临床指南执行</p>
+        <p class="mt-1">内部资料 · 请妥善保管</p>
+    </footer>
+
+    <script>
+        const database = {
+            "ovcf": {
+                name: "老年脊柱骨折(OVCF)",
+                category: "创伤/老年",
+                color: "red",
+                检验: [
+                    "血细胞分析（五分类+红白细胞形态）",
+                    "出凝血四项+DD+FDP",
+                    "尿沉渣测定+尿液分析（干化学）",
+                    "粪便检查（常规+隐血）",
+                    "生化全套组合（肝、肾、糖、脂）",
+                    "电解质（K/NA/CL/GA/MG/P）",
+                    "乙肝五项+艾、丙、梅毒（定性）",
+                    "（男/女）肿瘤标志物",
+                    "骨代谢五项"
+                ],
+                检查: [
+                    "床旁心电图（十二通道）",
+                    "胸椎正侧位（不要胶片）+腰椎正侧位（不要胶片）",
+                    "胸椎MRI平扫+腰椎MRI平扫",
+                    "胸椎CT平扫（含薄层）+骨密度（T11-L2）",
+                    "胸部CT平扫（含薄层）",
+                    "（住院）双下肢动脉及静脉（彩超）"
+                ],
+                内科并发症: {
+                    "高血压": ["（急）心脏标志物", "动态血压"],
+                    "冠心病、房颤": ["心脏彩超", "动态心电图+心率变异性分析"],
+                    "糖尿病": ["糖化血红蛋白测定"],
+                    "COPD": ["痰液培养", "肺功能"]
+                }
+            },
+            "trauma": {
+                name: "中青年脊柱骨折（创伤）",
+                category: "创伤",
+                color: "orange",
+                检验: [
+                    "血细胞分析（五分类+红白细胞形态）",
+                    "出凝血四项+DD+FDP",
+                    "尿沉渣测定+尿液分析（干化学）",
+                    "粪便检查（常规+隐血）",
+                    "生化全套组合（肝、肾、糖、脂）",
+                    "电解质（K/NA/CL/GA/MG/P）",
+                    "乙肝五项+艾、丙、梅毒（定性）",
+                    "血型鉴定（住院）（开放手术）"
+                ],
+                检查: [
+                    "床旁心电图（十二通道）",
+                    "颈椎/胸椎/腰椎正侧位（不要胶片）",
+                    "颈椎/胸椎/腰椎MRI平扫",
+                    "胸部CT平扫（含薄层）",
+                    "（住院）双下肢动脉及静脉（彩超）"
+                ],
+                内科并发症: {}
+            },
+            "cervical": {
+                name: "颈椎病",
+                category: "退行性疾病",
+                color: "blue",
+                检验: [
+                    "血细胞分析（五分类+红白细胞形态）",
+                    "出凝血四项+DD+FDP",
+                    "尿沉渣测定+尿液分析（干化学）",
+                    "粪便检查（常规+隐血）",
+                    "生化全套组合（肝、肾、糖、脂）",
+                    "电解质（K/NA/CL/GA/MG/P）",
+                    "乙肝五项+艾、丙、梅毒（定性）",
+                    "（男/女）肿瘤标志物",
+                    "骨代谢五项",
+                    "血型鉴定（住院）（考虑手术）"
+                ],
+                检查: [
+                    "常规/床旁心电图（十二通道）",
+                    "颈椎正侧位（不要胶片）+颈椎过伸过屈位（不要胶片）",
+                    "颈椎MRI平扫",
+                    "胸椎CT平扫（含薄层）+骨密度（T11-L2）",
+                    "胸部CT平扫（含薄层）",
+                    "（住院）双下肢动脉及静脉（彩超）",
+                    "双侧颈动脉及椎动脉彩超"
+                ],
+                内科并发症: {}
+            },
+            "ldh": {
+                name: "LDH/ISS/LS",
+                category: "退行性疾病",
+                color: "indigo",
+                检验: [
+                    "血细胞分析（五分类+红白细胞形态）",
+                    "出凝血四项+DD+FDP",
+                    "尿沉渣测定+尿液分析（干化学）",
+                    "粪便检查（常规+隐血）",
+                    "生化全套组合（肝、肾、糖、脂）",
+                    "电解质（K/NA/CL/GA/MG/P）",
+                    "乙肝五项+艾、丙、梅毒（定性）",
+                    "（男/女）肿瘤标志物",
+                    "骨代谢五项",
+                    "血型鉴定（住院）（考虑开放手术）"
+                ],
+                检查: [
+                    "常规/床旁心电图（十二通道）",
+                    "腰椎正侧位（不要胶片）+腰椎过伸过屈位（不要胶片）",
+                    "腰椎MRI平扫",
+                    "胸椎CT平扫（含薄层）+骨密度（T11-L2）",
+                    "胸部CT平扫（含薄层）",
+                    "（住院）双下肢动脉及静脉（彩超）"
+                ],
+                内科并发症: {}
+            }
+        };
+
+        let selectedDiseases = new Set();
+
+        function init() {
+            renderDiseaseButtons();
+        }
+
+        function renderDiseaseButtons() {
+            const grid = document.getElementById('diseaseGrid');
+            grid.innerHTML = '';
+            
+            Object.entries(database).forEach(([key, data]) => {
+                const label = document.createElement('label');
+                label.className = 'cursor-pointer block';
+                label.innerHTML = `
+                    <input type="checkbox" class="hidden checkbox-wrapper" value="${key}" onchange="toggleDisease('${key}')">
+                    <div class="border-2 border-gray-200 rounded-xl p-4 hover:border-blue-400 hover:shadow-md transition-all bg-white h-full">
+                        <div class="flex items-start justify-between mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-${data.color}-100 text-${data.color}-800">
+                                ${data.category}
+                            </span>
+                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle">
+                                <div class="w-2.5 h-2.5 rounded-full bg-blue-600 hidden check-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">${data.name}</h3>
+                        <p class="text-xs text-gray-500 mt-1">点击选择/取消</p>
+                    </div>
+                `;
+                grid.appendChild(label);
+            });
+        }
+
+        function toggleDisease(key) {
+            if (selectedDiseases.has(key)) {
+                selectedDiseases.delete(key);
+            } else {
+                selectedDiseases.add(key);
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            document.querySelectorAll('.checkbox-wrapper').forEach(cb => {
+                const dot = cb.nextElementSibling.querySelector('.check-dot');
+                const circle = cb.nextElementSibling.querySelector('.check-circle');
+                if (cb.checked) {
+                    dot.classList.remove('hidden');
+                    circle.classList.add('border-blue-600');
+                } else {
+                    dot.classList.add('hidden');
+                    circle.classList.remove('border-blue-600');
+                }
+            });
+
+            if (selectedDiseases.size === 0) {
+                document.getElementById('resultsArea').classList.add('hidden');
+                document.getElementById('emptyState').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('emptyState').classList.add('hidden');
+            document.getElementById('resultsArea').classList.remove('hidden');
+            
+            renderResults();
+            renderMergedView();
+        }
+
+        function renderResults() {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = '';
+
+            selectedDiseases.forEach(key => {
+                const data = database[key];
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden';
+                
+                let complicationsHtml = '';
+                if (Object.keys(data.内科并发症).length > 0) {
+                    complicationsHtml = `
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">合并内科疾病时加做</h4>
+                            <div class="space-y-2">
+                                ${Object.entries(data.内科并发症).map(([disease, items]) => `
+                                    <div class="bg-yellow-50 rounded-lg p-2 text-sm">
+                                        <span class="font-medium text-yellow-800">${disease}：</span>
+                                        <span class="text-yellow-700">${items.join('、')}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="bg-${data.color}-50 px-4 py-3 border-b border-${data.color}-100">
+                        <h3 class="font-bold text-${data.color}-900">${data.name}</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">检验项目</h4>
+                            <ul class="space-y-1">
+                                ${data.检验.map(item => `<li class="text-sm text-gray-600 flex items-start"><span class="mr-2">•</span><span>${item}</span></li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">检查项目</h4>
+                            <ul class="space-y-1">
+                                ${data.检查.map(item => `<li class="text-sm text-gray-600 flex items-start"><span class="mr-2">•</span><span>${item}</span></li>`).join('')}
+                            </ul>
+                        </div>
+                        ${complicationsHtml}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderMergedView() {
+            const merged = { 检验: new Set(), 检查: new Set() };
+            
+            selectedDiseases.forEach(key => {
+                const data = database[key];
+                data.检验.forEach(item => merged.检验.add(item));
+                data.检查.forEach(item => merged.检查.add(item));
+            });
+
+            const content = document.getElementById('mergedContent');
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">检验（${merged.检验.size}项）</h4>
+                        <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                            ${Array.from(merged.检验).map(item => `<div class="text-sm text-gray-700 border-b border-gray-200 last:border-0 pb-1 last:pb-0">${item}</div>`).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">检查（${merged.检查.size}项）</h4>
+                        <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                            ${Array.from(merged.检查).map(item => `<div class="text-sm text-gray-700 border-b border-gray-200 last:border-0 pb-1 last:pb-0">${item}</div>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function resetAll() {
+            selectedDiseases.clear();
+            document.querySelectorAll('.checkbox-wrapper').forEach(cb => cb.checked = false);
+            updateUI();
+        }
+
+        function copyToClipboard() {
+            let text = `脊柱外科检查医嘱清单\n生成时间：${new Date().toLocaleString()}\n\n`;
+            
+            selectedDiseases.forEach(key => {
+                const data = database[key];
+                text += `【${data.name}】\n`;
+                text += `检验项目：\n${data.检验.map(i => '- ' + i).join('\n')}\n\n`;
+                text += `检查项目：\n${data.检查.map(i => '- ' + i).join('\n')}\n\n`;
+            });
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('已复制到剪贴板！');
+            });
+        }
+
+        init();
+    </script>
 </body>
 </html>
